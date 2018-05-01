@@ -4,7 +4,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.integer :user_id
       t.text :comment
       t.date :photo_date
-      t.boolean :publish
+      t.boolean :publish, default: true
 
       t.timestamps
     end
