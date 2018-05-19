@@ -1,0 +1,27 @@
+<div class="main users-index">
+  <div class="container-fluid">
+    <h3 class="users-heading text-center">ユーザー一覧</h3>
+    <div class="users-index-item">
+      <div class="row">
+        <div class="col-xs-4 col-xs-offset-4">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th width=20></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @users.each do |user| %>
+              <tr>
+                <td><imag src="<%= "/user_images/#{user.image}" %>" class="img-circle" width="20" height="20"></td>
+                <td><%= link_to(user.name, "/users/#{user.id}") %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
