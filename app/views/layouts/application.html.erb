@@ -22,16 +22,16 @@
             <span class="icon-bar"></span>
           </button>
           <div class="navbar-brand">
-            <%= link_to("No Title", "/") %>
+            <%= link_to("No Title", root_path) %>
           </div>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to("新規登録", "/signup") %></li>
+            <li><%= link_to("新規登録", signup_path) %></li>
             <li><a href="#">ログイン</a></li>
-            <li><%= link_to("ユーザー一覧", "/users/index") %></li>
+            <li><%= link_to("ユーザー一覧", users_index_path) %></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->

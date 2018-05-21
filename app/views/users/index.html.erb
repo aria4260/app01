@@ -14,7 +14,7 @@
             <tbody>
               <% @users.each do |user| %>
               <tr>
-                <td><imag src="<%= "/user_images/#{user.image}" %>" class="img-circle" width="20" height="20"></td>
+                <td><%= image_tag("/user_images/#{user.image}", :size => "40x40", :class => "img-circle") %></td>
                 <td><%= link_to(user.name, "/users/#{user.id}") %></td>
               </tr>
               <% end %>
