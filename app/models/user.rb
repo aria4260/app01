@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  require "securerandom"
+
   has_many :posts, dependent: :destroy
   has_many :active_relationships, class_name: "Follow",
                                   foreign_key: "user_id",
@@ -14,4 +16,12 @@ class User < ApplicationRecord
   validates :name, {presence: true}
   validates :email, {presence: true, uniqueness: true}
   validates :password_digest, {presence: true, length: { minimum: 6 }, confirmation: true}
+
+  enum user_status: { non_verify: 0, verify: 1, withdraw: 99 }
+
+  before_create :generate_verify_token
+
+  def generate_verify_token
+    self.verify_token = SecureRandom.uuid
+  end
 end

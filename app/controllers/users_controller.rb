@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      UserMailer.send_verify(@user).deliver_now
       redirect_to(root_path)
     else
       render(new_user_path)

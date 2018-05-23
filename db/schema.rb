@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_28_182346) do
+ActiveRecord::Schema.define(version: 2018_05_22_020024) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 2018_04_28_182346) do
     t.integer "user_status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "verify_token"
   end
 
 end

@@ -65,3 +65,4 @@ gem 'therubyracer', platforms: :ruby
 gem "mysql2"
 gem 'bcrypt'
 gem 'rails-i18n'
+gem "letter_opener", :group => :development
