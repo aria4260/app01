@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       UserMailer.send_verify(@user).deliver_now
       redirect_to(root_path)
     else
-      render(new_user_path)
+      render action: :new
     end
   end
 
