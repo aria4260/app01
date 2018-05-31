@@ -15,7 +15,8 @@ class User < ApplicationRecord
 
   validates :name, {presence: true}
   validates :email, {presence: true, uniqueness: true}
-  validates :password_digest, {presence: true, length: { minimum: 6 }, confirmation: true}
+  has_secure_password
+  validates :password, {presence: true, length: { minimum: 6 }}
 
   enum user_status: { non_verify: 0, verify: 1, withdraw: 99 }
 

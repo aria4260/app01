@@ -1,10 +1,11 @@
 <div class="main user-show">
   <div class="container-fluid">
-    <div class="user">
-      <p class="text-center"><%= @user.name %></p>
-      <p class="text-center"><%= @user.email %></p>
-      <p class="text-center"><%= @user.password_digest %></p>
-      <p class="text-center"><%= @user.image %></p>
+    <div class="user text-center">
+      <p><%= image_tag("/user_images/#{@user.image}", :size => "40x40", :class => "img-circle") %></p>
+      <p><%= @user.name %></p>
+      <p><%= @user.email %></p>
+      <p><%= @user.user_status %></p>
+      <p><%= @user.verify_token %></p>
     </div>
   </div>
 </div>
