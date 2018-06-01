@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2018_05_24_201108) do
     t.integer "user_id"
     t.text "comment"
     t.date "photo_date"
-    t.boolean "publish"
+    t.boolean "publish", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

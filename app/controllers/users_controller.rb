@@ -11,6 +11,9 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def registered
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -19,6 +22,13 @@ class UsersController < ApplicationController
     else
       render action: :new
     end
+  end
+
+  def token
+    @user = User.find_by(verify_token: params[:verify_token])
+    @user.user_status = 1
+    flash[:notice] = "ユーザー認証が完了しました"
+    redirect_to root_path
   end
 
   def login_form
