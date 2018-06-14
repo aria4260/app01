@@ -1,0 +1,10 @@
+<div class="main posts-index">
+  <div class="container-fluid">
+    <h3 class="users-heading text-center">投稿一覧</h3>
+      <% @posts.each do |post| %>
+        <div class="posts-index-item">
+          <%= post.id %>
+        </div>
+      <% end %>
+  </div>
+</div>

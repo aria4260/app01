@@ -58,13 +58,13 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
   gem 'rspec'                  # テストツール
-gem 'rspec-rails'            # RailsでRspecが使える
-gem 'factory_bot_rails'      # テストデータの生成
-gem 'faker'                  # テストデータの生成
-gem 'database_cleaner'       # テスト実行後にDBをクリア
-gem 'timecop'                # テスト時に時間を固定できる
-gem 'spring-commands-rspec'  # spring経由でrspecを実行する
-gem 'launchy'
+  gem 'rspec-rails'            # RailsでRspecが使える
+  gem 'factory_bot_rails'      # テストデータの生成
+  gem 'faker'                  # テストデータの生成
+  gem 'database_cleaner'       # テスト実行後にDBをクリア
+  gem 'timecop'                # テスト時に時間を固定できる
+  gem 'spring-commands-rspec'  # spring経由でrspecを実行する
+  gem 'launchy'
 
 # Railsの開発効率を上げる - guard-rspec 自動でテスト(RSpec)を実行させる
 # http://ruby-rails.hatenadiary.com/entry/20141021/1413819783
@@ -81,4 +81,11 @@ gem 'therubyracer', platforms: :ruby
 gem "mysql2"
 gem 'bcrypt'
 gem 'rails-i18n'
+gem 'bootstrap_form'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+gem "jquery-ui-rails"
+gem 'nested_form_fields'
 # gem "letter_opener", :group => :development
+gem 'acts-as-taggable-on', '~> 5.0'
+gem 'carrierwave'
+# gem 'rmagick', require: 'RMagick'

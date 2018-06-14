@@ -4,4 +4,5 @@ ja:
       user:
         name: ユーザー名
         email: メールアドレス
-        password_digest: パスワード
+        password: パスワード
+        password_confimation: パスワード(確認用)

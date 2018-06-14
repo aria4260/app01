@@ -14,4 +14,9 @@
 //= require activestorage
 //= require turbolinks
 //= require common/jquery-3.3.1.min.js
+//= require jquery
+//= require jquery_ujs
+//= require nested_form_fields
+//= require jquery-ui
+//= require tag-it
 //= require framework/bootstrap.js
