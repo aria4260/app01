@@ -22,11 +22,7 @@
             <span class="icon-bar"></span>
           </button>
           <div class="navbar-brand">
-            <% if @current_user %>
-              <%= link_to("No Title", user_path) %>
-            <% else %>
-              <%= link_to("No Title", root_path) %>
-            <% end %>
+            <%= link_to("No Title", root_path) %>
           </div>
         </div>
 
@@ -34,19 +30,56 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <% if @current_user %>
-              <li><%= link_to(@current_user.name, user_path) %></li>
-              <li><%= link_to("ログアウト", logout_path) %></li>
+              <li>
+                <%= image_tag("#{@current_user.image}", :size => "40x40", :class => "img-circle") %>
+              </li>
+              <li>
+                <%= link_to(@current_user.name, mypage_user_path(@current_user)) %>
+              </li>
+              <li>
+                <%= link_to("写真投稿", new_post_path) %>
+              </li>
+              <li>
+                <%= link_to("ユーザー情報", user_path(@current_user)) %>
+              </li>
+              <li>
+                <%= link_to("ログアウト", logout_path) %>
+              </li>
+              <li>
+                <%= link_to("新規登録", new_user_path) %>
+              </li>
+              <li>
+                <%= link_to("ログイン", login_path) %>
+              </li>
+              <li>
+                <%= link_to("ユーザー一覧", users_path) %>
+              </li>
+              <li>
+                <%= link_to("投稿一覧", posts_path) %>
+              </li>
             <% else %>
-              <li><%= link_to("新規登録", new_user_path) %></li>
-              <li><%= link_to("ログイン", login_path) %></li>
+              <li>
+                <%= link_to("新規登録", new_user_path) %>
+              </li>
+              <li>
+                <%= link_to("ログイン", login_path) %>
+              </li>
+              <li>
+                <%= link_to("ユーザー一覧", users_path) %>
+              </li>
+              <li>
+                <%= link_to("投稿一覧", posts_path) %>
+              </li>
             <% end %>
-            <li><%= link_to("ユーザー一覧", users_path) %></li>
-            <li><%= link_to("写真投稿", new_post_path) %></li>
-            <li><%= link_to("投稿一覧", posts_path) %></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

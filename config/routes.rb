@@ -1,13 +1,21 @@
 Rails.application.routes.draw do
-#  resource :user
-  resources :users
-
-  get "/users/registered" => "users#registered"
-  get "/users/:verify_token" => "users#token"
-
   get "login" => "users#login_form"
   post "login" => "users#login"
-  post "logout" => "users#logout"
+  get "logout" => "users#logout"
+
+#  resource :user
+  resources :users, param: :verify_token  do
+    #idあり
+    member do
+      get 'mypage'
+      get 'auth'
+      patch 'auth_update'
+    end
+    #idなし
+    collection do
+      get 'reg'
+    end
+  end
 
   resources :posts
 

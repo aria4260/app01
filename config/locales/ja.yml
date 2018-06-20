@@ -5,4 +5,7 @@ ja:
         name: ユーザー名
         email: メールアドレス
         password: パスワード
-        password_confimation: パスワード(確認用)
+        password_confirmation: パスワード(確認用)
+      post:
+        photo_date: 撮影日
+        publish: 公開可否

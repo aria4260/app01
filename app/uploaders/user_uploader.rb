@@ -1,4 +1,4 @@
-class PhotoUploader < CarrierWave::Uploader::Base
+class UserUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
@@ -10,7 +10,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "uploads/photo"
+    "user_images"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
@@ -48,15 +48,15 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # リサイズしたり画像形式を変更するのに必要
   include CarrierWave::RMagick
 
-  # 画像の上限を設定する
-  process :resize_to_limit => [500, 500]
+  # 画像の上限を200pxにする
+  process :resize_to_limit => [200, 200]
 
   # 保存形式をJPGにする
   process :convert => 'jpg'
 
   # サムネイルを生成する設定
   #version :thumb do
-  #  process :resize_to_fill => [100, 100, gravity = ::Magick::CenterGravity]
+  #  process :resize_to_fill => [40, 40, gravity = ::Magick::CenterGravity]
   #end
 
   # jpg,jpeg,gif,pngしか受け付けない
@@ -69,7 +69,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
     "#{secure_token}.#{file.extension}" if original_filename.present?
   end
 
-  #protected
+  protected
   def secure_token
     var = :"@#{mounted_as}_secure_token"
     model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)

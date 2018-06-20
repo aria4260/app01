@@ -4,5 +4,5 @@
 <br>
 ○○○○へのユーザー登録が完了しました。<br>
 <br>
-ユーザー認証のために下記URLをクリックしてください。<br>
-<%= link_to("http://localhost:3000/users/#{@user.verify_token}", users_registered_path(@user)) %>
+下記のリンクをクリックしてユーザー認証をしてください。<br>
+<%= link_to("http://localhost:3000/users/#{@user.verify_token}/authpage", auth_user_url(@user), :target=>["_blank"]) %>

@@ -14,9 +14,26 @@
 //= require activestorage
 //= require turbolinks
 //= require common/jquery-3.3.1.min.js
+//= require framework/bootstrap.js
 //= require jquery
 //= require jquery_ujs
-//= require nested_form_fields
 //= require jquery-ui
 //= require tag-it
-//= require framework/bootstrap.js
+//= require nested_form_fields
+//= require moment
+//= require fullcalendar
+// @ app/assets/javascripts/application.js
+
+//= require fullcalendar/lang/ja
+
+$(document).ready(function() {
+  $('#calendar').fullCalendar({
+    header: {
+      left: 'prev today',
+      center: 'title',
+      right: 'today next'
+    },
+    lang: 'ja'
+    navLinks: 'true'
+  })
+});

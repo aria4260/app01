@@ -1,7 +1,7 @@
 <div class="main users-index">
   <div class="container-fluid">
-    <h3 class="users-heading text-center">ユーザー一覧</h3>
-    <div class="users-index-item">
+    <div class="text-center"><h3>ユーザー一覧</h3></div>
+
       <div class="row">
         <div class="col-xs-4 col-xs-offset-4">
           <table class="table table-striped">
@@ -14,7 +14,7 @@
             <tbody>
               <% @users.each do |user| %>
               <tr>
-                <td><%= image_tag("/user_images/#{user.image}", :size => "40x40", :class => "img-circle") %></td>
+                <td><%= image_tag("#{user.image}", :size => "40x40", :class => "img-circle") %></td>
                 <td><%= link_to(user.name, user_path(user)) %></td>
               </tr>
               <% end %>
@@ -22,6 +22,6 @@
           </table>
         </div>
       </div>
-    </div>
+
   </div>
 </div>

@@ -68,10 +68,10 @@ group :test do
 
 # Railsの開発効率を上げる - guard-rspec 自動でテスト(RSpec)を実行させる
 # http://ruby-rails.hatenadiary.com/entry/20141021/1413819783
-gem 'guard'
-gem 'guard-rspec', require: false # guardでrspecを動かす
-gem 'terminal-notifier'
-gem 'terminal-notifier-guard'     # デスクトップ通知を行う
+  gem 'guard'
+  gem 'guard-rspec', require: false # guardでrspecを動かす
+  gem 'terminal-notifier'
+  gem 'terminal-notifier-guard'     # デスクトップ通知を行う
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -83,9 +83,11 @@ gem 'bcrypt'
 gem 'rails-i18n'
 gem 'bootstrap_form'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
-gem "jquery-ui-rails"
+gem 'jquery-ui-rails'
 gem 'nested_form_fields'
 # gem "letter_opener", :group => :development
 gem 'acts-as-taggable-on', '~> 5.0'
 gem 'carrierwave'
-# gem 'rmagick', require: 'RMagick'
+gem 'rmagick'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
