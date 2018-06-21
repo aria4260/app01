@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
@@ -48,6 +48,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'letter_opener_web', '~> 1.0'
 end
 
 group :test do
@@ -56,6 +57,21 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'rspec'                  # テストツール
+  gem 'rspec-rails'            # RailsでRspecが使える
+  gem 'factory_bot_rails'      # テストデータの生成
+  gem 'faker'                  # テストデータの生成
+  gem 'database_cleaner'       # テスト実行後にDBをクリア
+  gem 'timecop'                # テスト時に時間を固定できる
+  gem 'spring-commands-rspec'  # spring経由でrspecを実行する
+  gem 'launchy'
+
+# Railsの開発効率を上げる - guard-rspec 自動でテスト(RSpec)を実行させる
+# http://ruby-rails.hatenadiary.com/entry/20141021/1413819783
+  gem 'guard'
+  gem 'guard-rspec', require: false # guardでrspecを動かす
+  gem 'terminal-notifier'
+  gem 'terminal-notifier-guard'     # デスクトップ通知を行う
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -65,3 +81,13 @@ gem 'therubyracer', platforms: :ruby
 gem "mysql2"
 gem 'bcrypt'
 gem 'rails-i18n'
+gem 'bootstrap_form'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+gem 'jquery-ui-rails'
+gem 'nested_form_fields'
+# gem "letter_opener", :group => :development
+gem 'acts-as-taggable-on', '~> 5.0'
+gem 'carrierwave'
+gem 'rmagick'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'

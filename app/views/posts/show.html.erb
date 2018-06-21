@@ -1,0 +1,41 @@
+<div class="main posts-show">
+  <div class="container-fluid">
+    <div class="text-center">
+      <p><%= image_tag("#{@user.image}", :size => "40x40", :class => "img-circle") %>
+      <%= link_to(@user.name, mypage_user_path(@user)) %></p>
+      <p>撮影日：<%= @post.photo_date %></p>
+      <% if @post.comment %>
+        <p>コメント：<%= @post.comment %></p>
+      <% end %>
+      <p>公開可否：
+        <% if @post.publish = true %>
+          公開する
+        <% elsif @post.publish = false %>
+          公開しない
+        <% end %>
+      </p>
+      <p>
+      <% @post.tag_list.each do |tag| %>
+        <%= tag %>
+      <% end %>
+      </p>
+      <p>
+      <% @post.photos.each do |photo| %>
+        <%= photo.image %><br>
+      <% end %>
+      </p>
+
+      <div class="form-group">
+        <%= link_to("編集", edit_post_path, class: "btn btn-large btn-primary") %>
+        <%= link_to("削除", post_path(@post), method: "delete", class: "btn btn-large btn-primary") %>
+      </div>
+    </div>
+
+    <div class="imageIndex">
+      <% @post.photos.each do |photo| %>
+        <%= image_tag("#{photo.image}", class: "img-responsive cover") %>
+      <% end %>
+    </div>
+
+  </div>
+</div>

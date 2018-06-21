@@ -1,0 +1,49 @@
+<div class="main users-edit">
+  <div class="container-fluid">
+    <div class="text-center"><h3>ユーザー情報の編集</h3></div>
+
+      <div class="row">
+        <div class="col-xs-4 col-xs-offset-4">
+          <% @user.errors.full_messages.each do |message| %>
+            <%= message %><br>
+          <% end %>
+
+          <%= form_for @user do |f| %>
+            <div class="form-group">
+              <%= f.label :image, "アカウント画像" %><br>
+              <%= f.file_field :image %>
+              <%= f.hidden_field :image_cache %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :name, "ユーザー名" %><br>
+              <%= f.text_field :name, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :email, "メールアドレス" %><br>
+              <%= f.email_field :email, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :password, "パスワード(6文字以上)" %><br>
+              <%= f.password_field :password, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :password_confirmation, "パスワード(確認用)" %><br>
+              <%= f.password_field :password_confirmation, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= f.submit "保存", class: "btn btn-large btn-primary" %>
+              <%= link_to("戻る", user_path(@user), class: "btn btn-large btn-primary") %>
+            </div>
+
+          <% end %>
+
+      </div>
+    </div>
+
+  </div>
+</div>

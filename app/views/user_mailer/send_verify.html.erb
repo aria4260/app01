@@ -1,0 +1,8 @@
+<br>
+<%= @user.name %> 様、○○○○へようこそ。<br>
+===============================================<br>
+<br>
+○○○○へのユーザー登録が完了しました。<br>
+<br>
+下記のリンクをクリックしてユーザー認証をしてください。<br>
+<%= link_to("http://localhost:3000/users/#{@user.verify_token}/auth_update", auth_update_user_url(@user), :target=>["_blank"]) %>

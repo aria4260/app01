@@ -2275,6 +2275,7 @@ th {
   line-height: 1.42857143;
   vertical-align: top;
   border-top: 1px solid #ddd;
+  vertical-align: middle;
 }
 .table > thead > tr > th {
   vertical-align: bottom;
@@ -3979,6 +3980,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav > li {
   position: relative;
   display: block;
+  vertical-align: middle;
 }
 .nav > li > a {
   position: relative;

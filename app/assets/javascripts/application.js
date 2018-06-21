@@ -15,3 +15,28 @@
 //= require turbolinks
 //= require common/jquery-3.3.1.min.js
 //= require framework/bootstrap.js
+//= require jquery
+//= require jquery_ujs
+//= require jquery-ui
+//= require tag-it
+//= require nested_form_fields
+//= require moment
+//= require fullcalendar
+// @ app/assets/javascripts/application.js
+
+//= require fullcalendar/lang/ja
+$(document).ready(function() {
+  $('#calendar').fullCalendar({
+    header: {
+      left: 'prev today',
+      center: 'title',
+      right: 'today next'
+    },
+    lang: 'ja'
+  });
+});
+
+$(document).on 'ready page:load', ->
+  $('#article_tag_list').tagit
+    singleField: true,
+    availableTags: myProject.all_tag_list
