@@ -41,3 +41,15 @@
   background-color: #ccc;
   border: 1px solid #ccc;
 }
+
+.imageIndex {
+  display: flex;
+}
+
+.imagePreview {
+    width: 40px;
+    height: 40px;
+    background-position: center center;
+    background-size: cover;
+    display: inline-block;
+}

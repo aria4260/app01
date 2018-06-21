@@ -18,9 +18,6 @@ class PostsController < ApplicationController
 
   def create
     @post = @current_user.posts.build(post_params)
-    @post.save
-    @post.tag_list.add(params[:tag_list])
-    @post.save
     if @post.save
       flash[:notice] = "投稿完了しました"
       redirect_to mypage_user_path(@current_user)
@@ -29,9 +26,21 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    @post = Post.find_by(id: params[:id])
+    @post.photos.cache! unless @post.photos.image.blank?
+  end
+
+
+  def destroy
+    @post = Post.find_by(id: params[:id])
+    @post.destroy
+    redirect_to root_path
+  end
+
   private
     def post_params
-      params.require(:post).permit(:comment, :photo_date, :publish, photos_attributes: [:id, :image, :_destroy])
+      params.require(:post).permit(:comment, :photo_date, :publish, :tag_list, photos_attributes: [:id, :image, :_destroy])
     end
 
 end

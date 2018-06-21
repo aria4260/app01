@@ -30,14 +30,15 @@ class UsersController < ApplicationController
   end
 
   def auth_update
-    @user = find_user_by_verify_token
-    @user.update(user_status: 1)
+    @user.user_status = 1
+    @user.save
     session[:user_id] = @user.id
-    redirect_to mypage_usre_path(@user)
+    redirect_to auth_user_path(@user)
   end
 
   def edit
     @user = find_user_by_verify_token
+    @user.image.cache! unless @user.image.blank?
   end
 
   def update
@@ -45,7 +46,7 @@ class UsersController < ApplicationController
     @user.update(user_params)
     if @user.save
       flash[:notice] = "ユーザー情報を変更しました"
-      redirect_to mypage_user_path(@user)
+      redirect_to user_path(@user)
     else
       render action: :edit
     end

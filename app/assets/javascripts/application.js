@@ -25,7 +25,6 @@
 // @ app/assets/javascripts/application.js
 
 //= require fullcalendar/lang/ja
-
 $(document).ready(function() {
   $('#calendar').fullCalendar({
     header: {
@@ -34,6 +33,10 @@ $(document).ready(function() {
       right: 'today next'
     },
     lang: 'ja'
-    navLinks: 'true'
-  })
+  });
 });
+
+$(document).on 'ready page:load', ->
+  $('#article_tag_list').tagit
+    singleField: true,
+    availableTags: myProject.all_tag_list

@@ -24,27 +24,18 @@
         <%= photo.image %><br>
       <% end %>
       </p>
+
+      <div class="form-group">
+        <%= link_to("編集", edit_post_path, class: "btn btn-large btn-primary") %>
+        <%= link_to("削除", post_path(@post), method: "delete", class: "btn btn-large btn-primary") %>
+      </div>
     </div>
 
-    <table class="table">
-      <thead>
-        <tr>
-          <th class="col-xs-1"></th>
-          <th class="col-xs-1"></th>
-          <th class="col-xs-1"></th>
-          <th class="col-xs-1"></th>
-          <th class="col-xs-1"></th>
-          <th class="col-xs-1"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <% @post.photos.each do |photo| %>
-            <td><%= image_tag("#{photo.image}", class: "img-responsive cover") %></td>
-          <% end %>
-        </tr>
-      </tbody>
-    </table>
+    <div class="imageIndex">
+      <% @post.photos.each do |photo| %>
+        <%= image_tag("#{photo.image}", class: "img-responsive cover") %>
+      <% end %>
+    </div>
 
   </div>
 </div>

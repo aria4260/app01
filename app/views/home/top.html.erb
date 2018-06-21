@@ -1,5 +1,6 @@
 <div class="main home-index">
   <div class="container-fluid">
+    <% if @current_user %>
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
@@ -44,6 +45,17 @@
       <footer class="footer">
         <p>&copy; 2016 Company, Inc.</p>
       </footer>
+    <% else %>
+      <div class="text-center"><h3>最新投稿一覧</h3></div><br>
+        <div class="imageIndex">
+          <% @posts.each do |post| %>
+            <% if post.publish = "true" %>
+              <% p = post.photos.find_by(post_id: post) %>
+              <%= link_to image_tag("#{p.image}", class: "img-responsive cover"), post_path(post) %>
+            <% end %>
+          <% end %>
+        </div>
+    <% end %>
 
   </div> <!-- /container -->
 </div>
