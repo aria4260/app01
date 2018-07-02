@@ -4,10 +4,10 @@
 
       <div class="row">
         <div class="col-xs-4 col-xs-offset-4">
-          <% if @error_message %>
-          <div class="form-error">
-            <%= @error_message %>
-          </div>
+          <% if flash[:alert] %>
+            <div class="form-group">
+              <%= flash[:alert] %>
+            </div>
           <% end %>
 
           <%= form_tag(login_path, method: :post) do %>
@@ -29,6 +29,6 @@
 
         </div>
       </div>
-      
+
   </div>
 </div>

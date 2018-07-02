@@ -30,10 +30,16 @@ class UsersController < ApplicationController
   end
 
   def auth_update
-    @user.user_status = 1
-    @user.save
-    session[:user_id] = @user.id
-    redirect_to auth_user_path(@user)
+    @user = find_user_by_verify_token
+    @user.verify!(validates: :false)
+    if @user.verify?
+      flash[:notice] = "ユーザー認証が完了しました"
+      session[:user_id] = @user.id
+      redirect_to mypage_user_path(@user)
+    else
+      flash[:alert] = "ユーザー認証に失敗しました"
+      render action: :auth
+    end
   end
 
   def edit
@@ -72,7 +78,7 @@ class UsersController < ApplicationController
       flash[:notice] = "ログインしました"
       redirect_to mypage_user_path(@user)
     else
-      @error_massage = "メールアドレスまたはパスワードが間違っています"
+      flash[:alert] = "メールアドレスまたはパスワードが間違っています"
       @email = params[:email]
       render action: :login_form
     end

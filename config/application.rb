@@ -18,5 +18,4 @@ module App01
 
     config.i18n.default_locale = :ja
   end
-
 end

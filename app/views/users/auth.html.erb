@@ -1,8 +1,14 @@
 <div class="main users-token">
   <div class="container-fluid">
     <div class="text-center">
+
+      <% if flash[:alert] %>
+        <div class="form-group">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
       <p><h4>下記をクリックするとユーザー認証が完了します</h4><p>
-      <p><%= link_to("ユーザー認証を完了する", :controller => "users", :action => "auth_update") %></p
+      <p><%= link_to("ユーザー認証を完了する", {:action=>"auth_update", :controller=>"users"}, method: "patch") %></p>
     </div>
   </div>
 </div>

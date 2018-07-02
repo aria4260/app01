@@ -12,7 +12,6 @@ RSpec.describe User, type: :model do
     it '値が異常な場合' do
       user.email = ""
       user.password = ""
-      p user.password
       expect(user.save).to eq(false)
       expect(user.errors.messages[:email].present?).to eq(true)
       #expect(user.errors.messages[:password].present?).to eq(true)
@@ -24,12 +23,10 @@ RSpec.describe User, type: :model do
 
     it '値が正常な場合' do
       user.password = "hogehoge"
-      p user.password_digest
       expect(user.password_digest.present?).to eq(true)
     end
 
     it '値が異常な場合' do
-      p user.password_digest
       expect(user.password_digest.present?).to eq(false)
     end
   end
@@ -40,13 +37,11 @@ RSpec.describe User, type: :model do
     it '値が正常な場合' do
       user.password = "hogehoge"
       user.save
-      p user.verify_token
       expect(user.verify_token.present?).to eq(true)
     end
 
     it '値が異常な場合' do
       user.save
-      p user.verify_token
       expect(user.verify_token.present?).to eq(false)
     end
   end
@@ -57,11 +52,9 @@ RSpec.describe User, type: :model do
     it 'verify_tokenが更新されないこと' do
       user.password = "hogehoge"
       user.save
-      p user.name
       update_before = user.verify_token
       user.name = "hoge"
       user.save
-      p user.name
       update_after = user.verify_token
       expect(update_after).to eq(update_before)
     end
