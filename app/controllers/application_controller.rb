@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   before_action :set_current_user
 
+  before_action :basic
+
   def set_current_user
     @current_user = User.find_by(id: session[:user_id])
   end
@@ -18,6 +20,14 @@ class ApplicationController < ActionController::Base
     if @current_user
       flash[:notice] = "すでにログインしています"
       redirect_to root_path
+    end
+  end
+
+  def basic
+    if !Rails.env.development?
+      authenticate_or_request_with_http_basic do |user, pass|
+        user == 'user' && pass == 'pass'
+      end
     end
   end
 
