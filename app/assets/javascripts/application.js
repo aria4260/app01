@@ -36,7 +36,9 @@ $(document).ready(function() {
   });
 });
 
-$(document).on 'ready page:load', ->
-  $('#article_tag_list').tagit
-    singleField: true,
-    availableTags: myProject.all_tag_list
+$(document).on('ready page:load', function(){
+  $('#article_tag_list').tagit({
+        singleField: true,
+        availableTags: myProject.all_tag_list
+      })
+}) 
